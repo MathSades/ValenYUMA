@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Para você 💛</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #fffbe6, #ffefd5);
+      overflow-x: hidden;
+    }
+
+    .fundo {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/4/40/Sunflower_sky_backdrop.svg') no-repeat center center;
+      background-size: cover;
+      opacity: 0.1;
+      animation: girassol 15s infinite ease-in-out alternate;
+      z-index: 0;
+    }
+
+    @keyframes girassol {
+      from { transform: scale(1); }
+      to { transform: scale(1.03); }
+    }
+
+    .conteudo {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding-top: 4rem;
+    }
+
+    .carta {
+      background: rgba(255,255,255,0.9);
+      padding: 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .carta h1 {
+      color: #d18b00;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .carta p {
+      font-size: 1.2rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .botao {
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      background-color: #ffc107;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .botao:hover {
+      background-color: #e0a800;
+    }
+
+    .envelope-container {
+      margin-top: 4rem;
+    }
+
+    .envelope {
+      width: 240px;
+      height: 160px;
+      background: #fff6d5;
+      border: 2px solid #e6c768;
+      border-radius: 8px;
+      position: relative;
+      margin: 0 auto;
+      cursor: pointer;
+      transition: transform 1s ease;
+      overflow: hidden;
+    }
+
+    .envelope::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffe082;
+      clip-path: polygon(0 0, 100% 0, 50% 50%);
+      z-index: 2;
+      transition: clip-path 1s ease;
+    }
+
+    .envelope.aberto::before {
+      clip-path: polygon(0 0, 0 0, 0 0);
+    }
+
+    .mensagem-final {
+      display: none;
+      background: white;
+      margin: 2rem auto;
+      max-width: 800px;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #333;
+      white-space: pre-wrap;
+      text-align: justify;
+    }
+
+    .envelope.aberto + .mensagem-final {
+      display: block;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="fundo"></div>
+
+  <div class="conteudo">
+    <div class="carta">
+      <h1>🌻 Feliz Dia dos Namorados 🌻</h1>
+      <p id="frase">Você é a luz dos meus dias nublados.</p>
+      <button class="botao" onclick="trocarFrase()">Próxima frase</button>
+    </div>
+
+    <div class="envelope-container">
+      <div class="envelope" onclick="abrirCarta(this)"></div>
+      <div class="mensagem-final" id="mensagemFinal">
+        Ei,
+
+Se eu pudesse te entregar meu coração em algo além de palavras, talvez você finalmente entendesse o impacto que teve em mim. Porque, por mais que eu tente explicar, não existe linha, letra ou metáfora que traduza o que você provocou aqui dentro.
+
+Você apareceu devagar…
+E sem nem perceber, passou por todas as defesas que construí.
+Me viu onde ninguém enxergava, tocou onde eu achava que ninguém mais podia encostar.
+
+Você me fez querer tentar.
+Não pela ideia do amor em si, mas porque foi você.
+
+Não sou o tipo que fala “eu te amo” com facilidade, mas se você ouvir isso da minha boca, saiba: é o mais verdadeiro dos meus sentimentos. Porque amor, pra mim, não é leve — é um peso bom. Um laço que aperta e liberta ao mesmo tempo. Um desejo de cuidar, proteger, manter por perto.
+
+E você se tornou isso.
+Minha vontade de ficar, de construir, de me abrir.
+Você é minha calma, meu caos bonito, meu ponto de retorno quando tudo parece desmoronar.
+
+Se um dia eu parecer distante, silencioso ou difícil demais, lembre-se disso: eu te escolhi. Com todas as minhas falhas, cicatrizes e versões inacabadas… eu escolhi você. Porque em você, eu vejo lar. Em você, eu vejo coragem pra ser quem eu sou de verdade.
+
+Feliz Dia dos Namorados, meu amor.
+E que venham todos os próximos… com você.
+
+        - Math 
+      </div>
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2023/03/09/audio_5f7f7c7d2d.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const frases = [
+      "Você é a luz dos meus dias nublados.",
+      "Em cada pétala, um motivo pra te amar mais.",
+      "Como um girassol, meu coração sempre se vira pra você.",
+      "Se eu pudesse, te daria o mundo — mas te dou meu coração.",
+      "Você é minha flor favorita no campo da vida."
+    ];
+
+    let index = 0;
+
+    function trocarFrase() {
+      index = (index + 1) % frases.length;
+      document.getElementById('frase').textContent = frases[index];
+    }
+
+    function abrirCarta(el) {
+      el.classList.add('aberto');
+    }
+  </script>
+</body>
+</html>
